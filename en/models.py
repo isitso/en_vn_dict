@@ -11,3 +11,7 @@ class Word(models.Model):
     meaning_vn = models.CharField(max_length=1024)
     type = models.CharField(max_length=50)
     meaning_en = models.CharField(max_length=1024)
+
+    def __str__(self):
+        """ To String """
+        return self.word
