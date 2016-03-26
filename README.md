@@ -2,7 +2,7 @@
 english-vietnamese dictionary.
 this contains some daily used words (currently around 900s).
 
-this mini project is built using Django 1.9
+this mini project is built using Django 1.9 ad jQuery Mobile
 
 sources:
  - play.png: from flaticon.com (more info in license.txt)

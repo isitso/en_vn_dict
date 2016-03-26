@@ -4,39 +4,13 @@
 <head>
     <meta charset="utf-8" />
     <title>English Words</title>
-    <link rel="stylesheet" href="{% static 'en/style.css' %}">
     <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <script type="text/javascript">
-        /*
-        $(document).on("pagecreate", function () {
-            printAToZ();
-        });
+    <link rel="stylesheet" href="{% static 'en/style.css' %}">
 
-        $(document).on("pageload", function () {
-            printAToZ();
-        })
-        function printAToZ() {
-            var text = "";
-            for (var i = 65; i <= 90; i++) {
-                text += "<a href=\"/words/" + String.fromCharCode(i).toLowerCase() + "\">"
-                    + String.fromCharCode(i) + "</a> ";
-            }
-            $("#urls").html(text);
-        }*/
-        /*
-        function printAToZ() {
-            var first = "a", last = "z";
-            //var urls = document.getElementById("urls");
-            var text = "";
-            for (var i = first.charCodeAt(0) ; i <= last.charCodeAt(0) ; i++) {
-                text += "<a href=\"/words/" + eval("String.fromCharCode(" + i + ")") + "\">"
-                    + eval("String.fromCharCode(" + i + ")").toUpperCase() + "</a> ";
-            }
-            document.getElementById("urls").innerHTML = text;
-        };*/
+    <script type="text/javascript">
         function play_audio(word_id) {
             var audio = document.getElementById("audio" + word_id);
             audio.load();
@@ -51,21 +25,24 @@
         {% endfor %}
     </p>
     {% if object_list %}
+    <ul data-role="listview" data-inset="true">
         {% for word in object_list %}
-        <p>
-            <img id="img{{ word.id }}" src="{% static 'en/play.png' %}" alt="play" onclick="play_audio({{ word.id }})" />
+        <!-- <li data-role="list-divider"></li> -->
+        <li><img id="img{{ word.id }}" src="{% static 'en/play.png' %}" alt="play" class="ui-li-icon ui-corner-none" onclick="play_audio({{ word.id }})" />
             <audio id="audio{{ word.id }}"><source src="https://ssl.gstatic.com/dictionary/static/sounds/de/0/{{ word.word }}.mp3" type="audio/mp3" /></audio>
-            <strong>{{ word.word }}</strong>
-            <em> ({{ word.type }}) </em>
-            {{ word.meaning_vn }}
-            <em>   |   {{ word.meaning_en }}</em>
-        </p>
+            <h2>{{ word.word }}</h2>
+            <p class="ui-li-aside"> ({{ word.type }})</p>
+            <p>{{ word.meaning_vn }}</p>
+        <!-- Override jQuery ListView's text cut off (...). Force it to show multiple lines -->
+            <p style="white-space:normal">{{ word.meaning_en }}</p>
+        </li>
         {% endfor %}
+    </ul>
     {% else %}
     <p>No words are available.</p>
     {% endif %}
     <footer>
-        More info and sources at <a href="https://github.com/isitso/en_vn_dict">Github</a>
+        <div>More info and sources at <a href="https://github.com/isitso/en_vn_dict">Github</a></div>
     </footer>
 </body>
 </html>
