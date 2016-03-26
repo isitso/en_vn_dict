@@ -1,0 +1,37 @@
+body {
+	margin: 0;
+}
+/*
+.word {
+	width: 20%;
+	text-align: center;
+}
+
+.part {
+	width: 5%;
+	text-align: center;
+}
+
+.meaning-vn {
+	width: 30%;
+	text-align: center;
+}
+
+.meaning-en {
+	width: 42%;
+	text-align: center;
+}
+
+.audio {
+	width: 3%;
+	text-align: center;
+}
+
+td {
+	padding:5px 0px;
+}
+*/
+p {
+    text-indent: -40px;
+    margin-left: 40px;
+}

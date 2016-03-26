@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>English Words</title>
+    <link rel="stylesheet" href="{% static 'en/style.css' %}">
+    <script type="text/javascript">
+        function play_audio(word_id) {
+            var audio = document.getElementById("audio" + word_id);
+            audio.load();
+            audio.play();
+        };
+    </script>
+</head>
+<body>
+    {% if object_list %}
+        {% for word in object_list %}
+        <p>
+            <img id="img{{ word.id }}" src="{% static 'en/play.png' %}" alt="play" onclick="play_audio({{ word.id }})" />
+            <audio id="audio{{ word.id }}"><source src="https://ssl.gstatic.com/dictionary/static/sounds/de/0/{{ word.word }}.mp3" type="audio/mp3" /></audio>
+            <strong>{{ word.word }}</strong>
+            <em> ({{ word.type }}) </em>
+            {{ word.meaning_vn }}
+            <em> {{ word.meaning_en }}</em>
+        </p>
+        {% endfor %}
+    {% else %}
+    <p>No words are available.</p>
+    {% endif %}
+</body>
+</html>

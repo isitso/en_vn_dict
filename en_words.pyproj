@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8b0bc16c-59c0-4bfc-a034-a2ad1efb0d10}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>manage.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId />
+    <InterpreterVersion />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+    <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="en\admin.py" />
+    <Compile Include="en\apps.py" />
+    <Compile Include="en\constants.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="en\migrations\__init__.py" />
+    <Compile Include="en\models.py" />
+    <Compile Include="en\tests.py" />
+    <Compile Include="en\urls.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="en\views.py" />
+    <Compile Include="en\__init__.py" />
+    <Compile Include="en_words\settings.py" />
+    <Compile Include="en_words\urls.py" />
+    <Compile Include="en_words\wsgi.py" />
+    <Compile Include="en_words\__init__.py" />
+    <Compile Include="manage.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="en" />
+    <Folder Include="en\migrations" />
+    <Folder Include="en\static\" />
+    <Folder Include="en\static\en\" />
+    <Folder Include="en\templates\" />
+    <Folder Include="en\templates\en\" />
+    <Folder Include="en_words" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="en\templates\en\index.html" />
+  </ItemGroup>
+  <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />
+</Project>
