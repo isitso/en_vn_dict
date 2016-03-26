@@ -47,7 +47,7 @@
 <body>
     <p id="urls" name="urls">
         {% for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" %}
-        <a href="words/{{ letter | lower }}">{{ letter }}</a> 
+        <a href="/words/{{ letter | lower }}">{{ letter }}</a> 
         {% endfor %}
     </p>
     {% if object_list %}
