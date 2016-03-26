@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="{% static 'en/style.css' %}">
     <script type="text/javascript">
         function printAToZ() {
-            var first = "A", last = "Z";
+            var first = "a", last = "z";
             //var urls = document.getElementById("urls");
             var text = "";
             for (var i = first.charCodeAt(0) ; i <= last.charCodeAt(0) ; i++) {
                 text += "<a href=\"/words/" + eval("String.fromCharCode(" + i + ")") + "\">"
-                    + eval("String.fromCharCode(" + i + ")") + "</a> ";
+                    + eval("String.fromCharCode(" + i + ")").toUpperCase() + "</a> ";
             }
             document.getElementById("urls").innerHTML = text;
         };
