@@ -5,11 +5,19 @@
     <meta charset="utf-8" />
     <title>English Words</title>
     <link rel="stylesheet" href="{% static 'en/style.css' %}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script type="text/javascript">
+        (function (doc) {
+            var viewport = document.getElementById('viewport');
+            if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i)) {
+                viewport.setAttribute("content", "width=device-width, initial-scale=0.3");
+            } else if (navigator.userAgent.match(/iPad/i)) {
+                viewport.setAttribute("content", "width=device-width, initial-scale=0.7");
+            }
+        }(document));
         function printAToZ() {
             var first = "a", last = "z";
             //var urls = document.getElementById("urls");
@@ -28,7 +36,7 @@
     </script>
 </head>
 <body onload="printAToZ()">
-    <p id="urls"></p>
+    <p id="urls" name="urls"></p>
     {% if object_list %}
         {% for word in object_list %}
         <p>

@@ -34,4 +34,10 @@ td {
 p {
     text-indent: -20px;
     margin-left: 40px;
+    font-size: 1.5em;
+}
+
+#urls {
+    font-size: 2em;
+    text-align: center;
 }
