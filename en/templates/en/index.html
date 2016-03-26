@@ -6,6 +6,16 @@
     <title>English Words</title>
     <link rel="stylesheet" href="{% static 'en/style.css' %}">
     <script type="text/javascript">
+        function printAToZ() {
+            var first = "A", last = "Z";
+            //var urls = document.getElementById("urls");
+            var text = "";
+            for (var i = first.charCodeAt(0) ; i <= last.charCodeAt(0) ; i++) {
+                text += "<a href=\"/words/" + eval("String.fromCharCode(" + i + ")") + "\">"
+                    + eval("String.fromCharCode(" + i + ")") + "</a> ";
+            }
+            document.getElementById("urls").innerHTML = text;
+        };
         function play_audio(word_id) {
             var audio = document.getElementById("audio" + word_id);
             audio.load();
@@ -13,7 +23,8 @@
         };
     </script>
 </head>
-<body>
+<body onload="printAToZ()">
+    <p id="urls"></p>
     {% if object_list %}
         {% for word in object_list %}
         <p>
@@ -22,7 +33,7 @@
             <strong>{{ word.word }}</strong>
             <em> ({{ word.type }}) </em>
             {{ word.meaning_vn }}
-            <em> {{ word.meaning_en }}</em>
+            <em>   |   {{ word.meaning_en }}</em>
         </p>
         {% endfor %}
     {% else %}
